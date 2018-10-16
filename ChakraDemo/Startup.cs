@@ -13,6 +13,8 @@ using ChakraCore.NET.Hosting;
 using ChakraCore.NET;
 using ChakraCore.NET.API;
 using ChakraCore.NET.Promise;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace ChakraDemo
 {
@@ -91,6 +93,13 @@ namespace ChakraDemo
 
             var (chakraContext, appClass) = CreateChakraContext();
 
+            var serializerSettings = new JsonSerializerSettings();
+            serializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            var serializer = new JsonSerializer();
+            serializer.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            app.UseStaticFiles();
+            
             app.Run(async (context) =>
             {
                 try
@@ -101,7 +110,13 @@ namespace ChakraDemo
                     };
 
                     var renderString = await appClass.CallFunctionAsync<EvContext, string>("render", evCtx);
+                    
+                    
                     await context.Response.WriteAsync(renderString);
+                    
+                    await context.Response.WriteAsync("<script>window.__INITIAL_STATE__ = " + Newtonsoft.Json.Linq.JToken.FromObject(evCtx, serializer).ToString() + ";</script>");
+                    await context.Response.WriteAsync("<script src=\"/dist/js/client.js\"></script>");
+                    
                     return;
                 }
                 catch (PromiseRejectedException ex)

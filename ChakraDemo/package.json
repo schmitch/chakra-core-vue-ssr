@@ -7,6 +7,7 @@
     "watch": "webpack --watch --mode=development",
     "build": "webpack --env.production --env.prod --env.NODE_ENV=production --mode=production --optimize-minimize",
     "build:dev": "webpack --mode=development"
+    
   },
   "dependencies": {
     "bootstrap": "^4.1.3",

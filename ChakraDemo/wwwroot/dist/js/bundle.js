@@ -8031,11 +8031,28 @@ if (inBrowser) {
 //
 //
 //
+//
+//
+//
+//
 
 var script = {
     name: 'app',
+    data () {
+        return {
+            count: 0,
+        }
+    },
+    methods: {
+        call() {
+            if (!this.count) {
+                this.count = 0;
+            }
+            this.count++;
+        }
+    },
     computed: {
-        title () {
+        title() {
             return this.$store.state.title;
         }
     }
@@ -8049,7 +8066,25 @@ var __vue_render__ = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
-  return _c("div", [_vm._v("Hello World " + _vm._s(_vm.title))])
+  return _c("div", { attrs: { id: "app" } }, [
+    _c("h1", [_vm._v("VueJS App")]),
+    _vm._v(" "),
+    _c("div", [
+      _vm._v("Hello World " + _vm._s(_vm.title) + " - " + _vm._s(_vm.count))
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        on: {
+          click: function($event) {
+            _vm.call();
+          }
+        }
+      },
+      [_vm._v("add to count")]
+    )
+  ])
 };
 var __vue_staticRenderFns__ = [];
 __vue_render__._withStripped = true;

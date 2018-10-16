@@ -1,1 +1,10 @@
-yarn run rollup -c --file wwwroot/dist/js/bundle.js -f esm
+Calling Yarn manually:
+
+    yarn run rollup -c
+    
+
+Calling it in csproj:
+
+        <Target Name="GenerateSomeFiles" BeforeTargets="BeforeBuild">
+            <Exec Command="yarn run rollup -c" />
+        </Target>
