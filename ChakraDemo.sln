@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChakraDemo", "ChakraDemo\ChakraDemo.csproj", "{90856680-6AE7-4854-8C21-E2DB832358B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90856680-6AE7-4854-8C21-E2DB832358B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90856680-6AE7-4854-8C21-E2DB832358B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90856680-6AE7-4854-8C21-E2DB832358B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90856680-6AE7-4854-8C21-E2DB832358B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1 @@
+yarn run rollup -c --file wwwroot/dist/js/bundle.js -f esm
